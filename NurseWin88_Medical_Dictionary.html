@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NurseWin88 Medical Dictionary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: left;
+            width: 50%;
+        }
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NurseWin88 Medical Dictionary</h1>
+    <p>Search medical terms and get their definitions instantly!</p>
+</header>
+
+<div class="container">
+    <input type="text" id="termInput" placeholder="Enter medical term...">
+    <button onclick="searchTerm()">Search</button>
+
+    <div id="result" class="result" style="display:none;"></div>
+</div>
+
+<footer>
+    &copy; 2025 NurseWin88 | Nursing Informatics Project
+</footer>
+
+<script>
+    const dictionary = {
+        "hypertension": "A condition in which the force of the blood against the artery walls is too high.",
+        "tachycardia": "An abnormally rapid heart rate, typically over 100 beats per minute in adults.",
+        "bradycardia": "A slower than normal heart rate, usually below 60 beats per minute in adults.",
+        "asthma": "A respiratory condition marked by spasms in the bronchi of the lungs, causing difficulty in breathing.",
+        "anemia": "A condition in which the blood doesn't have enough healthy red blood cells.",
+        "edema": "Swelling caused by excess fluid trapped in the body's tissues.",
+        "infection": "The invasion and multiplication of microorganisms such as bacteria, viruses, and parasites.",
+        "diabetes": "A group of diseases that result in too much sugar in the blood (high blood glucose)."
+    };
+
+    function searchTerm() {
+        const input = document.getElementById("termInput").value.toLowerCase();
+        const resultBox = document.getElementById("result");
+        if(dictionary[input]) {
+            resultBox.style.display = "block";
+            resultBox.innerHTML = `<h3>${input.charAt(0).toUpperCase() + input.slice(1)}</h3><p>${dictionary[input]}</p>`;
+        } else {
+            resultBox.style.display = "block";
+            resultBox.innerHTML = "<p><strong>Term not found.</strong> Please try another medical term.</p>";
+        }
+    }
+</script>
+
+</body>
+</html>
